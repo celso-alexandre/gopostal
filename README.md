@@ -65,7 +65,7 @@ import (
 
 func main() {
 	zip := "01001-000" // Example CEP (Brazil)
-	info, err := gopostal.FetchZipCode(zip, zipcode.ProviderGroups[zipcode.ProviderGroupBrazil], 3*time.Second)
+	info, err := gopostal.FetchZipCode(zip, zipcode.ProviderGroupBrazil, 3*time.Second)
 	if err != nil {
 		fmt.Println("Failed:", err)
 		return
