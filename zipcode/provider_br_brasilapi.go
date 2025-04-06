@@ -17,8 +17,8 @@ type Provider_BR_BrasilApi_ZipCodeInfo struct {
 
 func (v *Provider_BR_BrasilApi_ZipCodeInfo) ToZipCodeInfo() *ZipCodeInfo {
 	return &ZipCodeInfo{
-		ProviderName: "brasilapi_brazil",
-		ZipCode:      v.CEP,
+		ProviderName: "br_brasilapi",
+		ZipCode:      NormalizeBrazilZipCode(v.CEP),
 		State:        v.State,
 		City:         v.City,
 		Neighborhood: v.Neighborhood,

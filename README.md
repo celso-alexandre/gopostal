@@ -29,10 +29,15 @@ type ProviderResult struct {
 Adding a new provider group (country, probably):
 ```go
 // modify file: zipcode/group.go
-ProviderGroupUnitedStates ProviderGroupName = "US"
+type ProviderGroupName = string
+
+const (
+	// ..
+	ProviderGroupUnitedStates ProviderGroupName = "US"
+)
 
 var ProviderGroups = map[ProviderGroupName][]ZipCodeProvider{
-	...
+	// ...
 	ProviderGroupUnitedStates: {Provider_US_ProviderName{}},
 }
 ```

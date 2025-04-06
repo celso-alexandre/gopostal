@@ -7,5 +7,5 @@ const (
 )
 
 var ProviderGroups = map[ProviderGroupName][]ZipCodeProvider{
-	ProviderGroupBrazil: {ViaCEPProvider{}, Provider_BR_BrasilApi{}},
+	ProviderGroupBrazil: {Provider_BR_ViaCEP{}, Provider_BR_BrasilApi{}},
 }

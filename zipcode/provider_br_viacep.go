@@ -21,8 +21,8 @@ type Provider_BR_ViaCep_ZipCodeInfo struct {
 
 func (v *Provider_BR_ViaCep_ZipCodeInfo) ToZipCodeInfo() *ZipCodeInfo {
 	return &ZipCodeInfo{
-		ProviderName: "Provider_BR_ViaCep",
-		ZipCode:      v.CEP,
+		ProviderName: "br_viacep",
+		ZipCode:      NormalizeBrazilZipCode(v.CEP),
 		Street:       v.Logradouro,
 		Neighborhood: v.Bairro,
 		City:         v.Localidade,
@@ -30,9 +30,9 @@ func (v *Provider_BR_ViaCep_ZipCodeInfo) ToZipCodeInfo() *ZipCodeInfo {
 	}
 }
 
-type ViaCEPProvider struct{}
+type Provider_BR_ViaCEP struct{}
 
-func (v ViaCEPProvider) GetZipCodeDetails(zipCode string) *ZipCodeProviderResponse {
+func (v Provider_BR_ViaCEP) GetZipCodeDetails(zipCode string) *ZipCodeProviderResponse {
 	url := fmt.Sprintf("https://viacep.com.br/ws/%s/json/", zipCode)
 	resp, err := http.Get(url)
 	if err != nil {
