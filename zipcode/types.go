@@ -7,4 +7,7 @@ type ZipCodeInfo struct {
 	Neighborhood string `json:"neighborhood"`
 	City         string `json:"city"`
 	State        string `json:"state"`
+	// IBGE is the 7-digit IBGE municipality code. Populated by providers that expose
+	// it (ViaCEP); empty for providers that don't (BrasilAPI v1).
+	IBGE string `json:"ibge"`
 }

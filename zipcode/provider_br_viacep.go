@@ -27,6 +27,7 @@ func (v *Provider_BR_ViaCep_ZipCodeInfo) ToZipCodeInfo() *ZipCodeInfo {
 		Neighborhood: v.Bairro,
 		City:         v.Localidade,
 		State:        v.UF,
+		IBGE:         v.IBGE,
 	}
 }
 
