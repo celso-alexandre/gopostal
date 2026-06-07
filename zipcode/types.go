@@ -7,7 +7,13 @@ type ZipCodeInfo struct {
 	Neighborhood string `json:"neighborhood"`
 	City         string `json:"city"`
 	State        string `json:"state"`
-	// IBGE is the 7-digit IBGE municipality code. Populated by providers that expose
-	// it (ViaCEP); empty for providers that don't (BrasilAPI v1).
-	IBGE string `json:"ibge"`
+	// Brazil holds Brazil-specific attributes, populated for BR lookups by providers
+	// that expose them (e.g. ViaCEP). Nil when unavailable.
+	Brazil *BrazilZipCodeInfo `json:"brazil,omitempty"`
+}
+
+// BrazilZipCodeInfo carries Brazil-only postal attributes.
+type BrazilZipCodeInfo struct {
+	// IBGECode is the 7-digit IBGE municipality code.
+	IBGECode string `json:"ibge_code"`
 }
